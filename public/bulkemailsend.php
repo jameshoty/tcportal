@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //Recipients
         $mail->setFrom('jameshoty@me.com', 'James');
         // Add each email into the $mail object      
-        $email_recipients = explode(',',$emails,-1);
+        $email_recipients = explode(',',$emails);
         foreach ($email_recipients as $recipient) {
             $mail->addAddress($recipient);
         }
