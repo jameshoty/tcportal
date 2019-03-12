@@ -4,7 +4,7 @@ namespace classes\data;
 use classes\entity\User;
 use classes\util\DBUtil;
 
-class UserManagerDB
+class UserManagerDB 
 {
     public static function fillUser($row) 
     {
