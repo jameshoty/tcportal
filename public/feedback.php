@@ -40,7 +40,7 @@ if (isset($_POST["submitted"])) {
         // $formerror="* Your feedback is submitted successfully!";
 		$_SESSION['fname'] = $firstName;
 		$_SESSION['lname'] = $lastName;
-		var_dump($_SESSION);
+		// var_dump($_SESSION);
 		
 		echo '<meta http-equiv="Refresh" content="1; url=./modules/user/IU09-01thankyou.php">';
 	}

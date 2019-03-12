@@ -10,5 +10,6 @@ class User
    public $password;
    public $account_creation_time;
    public $role;
+   public $unsub;
 }
 ?>

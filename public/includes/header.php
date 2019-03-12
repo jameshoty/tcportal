@@ -17,7 +17,7 @@ if(isset($_SESSION["email"])) {
 ?>		
 	
 	<!-- Menu : Bulk Email -->
-	<a href="/phpcrudsample/public/bulkemail.php" class="w3-bar-item w3-button w3-mobile"><i class="fa fa-bed w3-margin-right"></i>Bulk Emailing</a>
+	<a href="/phpcrudsample/public/tcpbulkemail.php" class="w3-bar-item w3-button w3-mobile"><i class="fa fa-bed w3-margin-right"></i>Bulk Emailing</a>
 
 		<!-- Menu : View User (only if Admin login) -->
 		<a href="/phpcrudsample/public/modules/user/userlist.php" class="w3-bar-item w3-button w3-mobile">View Users</a>

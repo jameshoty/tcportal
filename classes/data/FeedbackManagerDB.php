@@ -87,7 +87,8 @@ class FeedbackManagerDB
         $stmt->close();
         $conn->close();		
 		
-	}
+    }
+
 }
 
 ?>

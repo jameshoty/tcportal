@@ -18,13 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();                      // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';                     // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;               // Enable SMTP authentication
-        $mail->Username = 'jameshoty18@gmail.com';                 // SMTP username
-        $mail->Password = 'Google18jameshoty';                 // SMTP password
-        $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 587;                    // TCP port to connect to
+        $mail->Username = 'jameshoty18@gmail.com';                 // SMTP username lithanlithan8@gmail.com
+        $mail->Password = 'Google18jameshoty';               // SMTP password
+        $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted tls
+        $mail->Port = 587;                    // TCP port to connect to 587
         
         //Recipients
-        $mail->setFrom('jameshoty@me.com', 'James');
+        $mail->setFrom('jameshoty@me.com', 'Admin');
         // Add each email into the $mail object      
         $email_recipients = explode(',',$emails);
         foreach ($email_recipients as $recipient) {
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         $mail->send();
         echo "<br>";
-        echo 'Message has been sent';
+        echo 'Message has been sent (bulkemailsend.php)';
     } catch (Exception $e) {
         echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
     }

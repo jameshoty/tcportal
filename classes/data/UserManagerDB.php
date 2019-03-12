@@ -15,7 +15,8 @@ class UserManagerDB
         $user->email=$row["email"];
         $user->password=$row["password"];
 		$user->role=$row["role"];
-		$user->account_creation_time=$row["account_creation_time"];
+        $user->account_creation_time=$row["account_creation_time"];
+        $user->unsub=$row["unsub"];
         return $user;
     }
     
@@ -68,9 +69,10 @@ class UserManagerDB
     public static function saveUser(User $user){
         // var_dump($user);
         $conn=DBUtil::getConnection();
-        $sql="call procSaveUser(?,?,?,?,?,?,?)";
+        $sql="call procSaveUser(?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("issssss", $user->id,$user->firstName, $user->lastName, $user->email,$user->password, $user->role, $user->account_creation_time ); 
+        $stmt->bind_param("isssssss", $user->id, $user->firstName, $user->lastName, $user->email, $user->password, 
+                                        $user->role, $user->account_creation_time, $user->unsub ); 
         $stmt->execute();
         if($stmt->errno!=0){
             printf("Error: %s.\n",$stmt->error);
@@ -78,6 +80,7 @@ class UserManagerDB
         $stmt->close();
         $conn->close();
     }
+
     public static function updatePassword($email,$password){
         $conn=DBUtil::getConnection();
         $sql="UPDATE tb_user SET password='$password' WHERE email='$email';";
@@ -105,7 +108,7 @@ class UserManagerDB
 
     }		
     public static function getAllUsers(){
-        $users[]=array();
+        $users=array();
         $conn=DBUtil::getConnection();
         $sql="select * from tb_user";
         $result = $conn->query($sql);
@@ -121,7 +124,7 @@ class UserManagerDB
 	
 	// added on 04.Jan.19
 	public static function searchByEmail($email) {
-		$user[]=array();
+		$user=array();
 		$conn=DBUTIL::getConnection();
 		$sql="select * from tb_user WHERE email Like '%$email%'";
 		$result = $conn->query($sql);
@@ -133,7 +136,21 @@ class UserManagerDB
 		}
 		$conn->close();
 		return $users;
-	}
+    }
+     
+    public static function updateUnsub($id){
+        $conn=DBUtil::getConnection();
+        $sql="UPDATE tb_user SET unsub=1 WHERE id='$id';";
+        $stmt = $conn->prepare($sql);
+		if ($conn->query($sql) === TRUE) {
+			echo "Record updated successfully";
+		} else {
+			echo "Error updating record: " . $conn->error;
+		}
+		$conn->close();
+
+    }	
+
 }
 
 ?>

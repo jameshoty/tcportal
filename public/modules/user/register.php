@@ -27,6 +27,7 @@ if(isset($_REQUEST["submitted"])){
         $user->email=$email;
         $user->password=$password;
         $user->role="user";
+        $user->unsub="0";
         $existuser=$UM->getUserByEmail($email);
 		//to do: check password strength, reject if weak
 		
@@ -48,7 +49,7 @@ if(isset($_REQUEST["submitted"])){
 ?>
 <link rel="stylesheet" href="..\..\css\pure-release-1.0.0\pure-min.css">
 <form name="myForm" method="post" class="pure-form pure-form-stacked">
-<h1>Registration Form</h1>
+<h1>Registration FORM</h1>
 <div><?=$formerror?></div>
 <table width="800">
   <tr>

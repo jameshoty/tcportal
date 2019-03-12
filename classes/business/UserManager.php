@@ -17,20 +17,27 @@ class UserManager
 
     public function getUserByEmailPassword($email,$password){
         return UserManagerDB::getUserByEmailPassword($email,$password);
-    }
+	}
+	
     public function getUserByEmail($email){
         return UserManagerDB::getUserByEmail($email);
-    }
+	}
+	
     public function getUserById($id){
         return UserManagerDB::getUserById($id);
-    }	
+	}	
+	
     public function saveUser(User $user){
         UserManagerDB::saveUser($user);
     }
-	
+
 	public function updatePassword($email,$password){
         UserManagerDB::updatePassword($email,$password);
-    }
+	}
+	
+	public function updateUnsub($id) {
+		UserManagerDB::updateUnsub($id);
+	}
 	
 	public function deleteAccount($id){
         UserManagerDB::deleteAccount($id);
